@@ -1,0 +1,83 @@
+.header {
+  font-size: 32px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  color: #333; /* Dark text for contrast */
+  font-weight: bold; /* Bold font for header */
+  text-transform: uppercase; /* Uppercase text for header */
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Consistent spacing between cards */
+}
+
+.card {
+  background-color: #f8f9fa; /* Light background for card */
+  border: 2px solid #ff7f11; /* Orange border color */
+  border-radius: 10px;
+  margin: 20px 20px;
+  cursor: pointer;
+  width: 20%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  border-color: #ff8c00; /* Darker orange on hover */
+}
+
+.card img {
+  border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s; /* Smooth transition for image hover effect */
+}
+
+.card img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.card h3 {
+  text-align: left;
+  color: #333; /* Dark text for card title */
+  margin-top: 15px;
+  font-size: 20px; /* Larger font size for card title */
+  font-weight: bold; /* Bold font for card title */
+  border-bottom: 2px solid #ff7f11; /* Orange underline */
+  padding-bottom: 5px; /* Space between text and underline */
+}
+
+.card p {
+  text-align: left;
+  color: #666; /* Dark grey text for card description */
+  margin-top: 15px;
+  font-weight: normal; /* Normal font weight for card description */
+  font-size: 16px; /* Consistent font size for card description */
+}
+
+/* Styling for TextInput components */
+.textInput input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #ff7f11; /* Orange border for inputs */
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.textInput input::placeholder {
+  color: #666;
+}

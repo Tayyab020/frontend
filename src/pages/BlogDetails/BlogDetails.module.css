@@ -1,0 +1,89 @@
+.detailsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.left {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profileImage {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+.meta p {
+  font-size: 14px;
+  color: #666;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.content {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff7f11;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.editButton,
+.deleteButton {
+  background-color: #ff7f11;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.editButton:hover {
+  background-color: #ff8c00;
+}
+
+.deleteButton:hover {
+  background-color: #ea3943;
+}
