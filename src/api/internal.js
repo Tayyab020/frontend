@@ -17,34 +17,7 @@ const handleError = (error) => {
   throw new Error(errorMessage);
 };
 
-export const createChat = async (users) => {
-  try {
-    const response = await api.post('/chats', { users });
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
 
-export const getChatById = async (chatId) => {
-  try {
-    const response = await api.get(`/chats/${chatId}`);
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
-
-export const sendMessage = async (chatId, message) => {
-  try {
-    const response = await api.post(`/chats/${chatId}/messages`, { message });
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
-
-// Existing methods ...
 
 export const login = async (data) => {
   try {
@@ -82,38 +55,11 @@ export const getAllBlogs = async () => {
   }
 };
 
-export const submitBlog = async (data) => {
-  try {
-    const response = await api.post("/blog", data);
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
+
 
 export const getBlogById = async (id) => {
   try {
     const response = await api.get(`/blog/${id}`);
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
-
-export const getCommentsById = async (id) => {
-  try {
-    const response = await api.get(`/comment/${id}`, {
-      validateStatus: false,
-    });
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
-
-export const postComment = async (data) => {
-  try {
-    const response = await api.post("/comment", data);
     return response;
   } catch (error) {
     handleError(error);
@@ -129,75 +75,10 @@ export const deleteBlog = async (id) => {
   }
 };
 
-export const updateBlog = async (data) => {
-  try {
-    const response = await api.put("/blog", data);
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
 
-export const updateProfileImage = async (id, profileImage) => {
-  try {
-      console.log('API ma a gyaa', id, profileImage);
-      const response = await api.post(`/updateProfileImage/${id}`, { profileImage }); // Ensure profileImage is sent as an object
-      return response;
-  } catch (error) {
-      console.error('Error in API call:', error); // Add this for debugging
-      handleError(error);
-  }
-};
 
-export const getProfileImage = async (userId) => {
-  try {
-    const response = await api.get(`/users/${userId}/profile-image`);
-    return response; 
-  } catch (error) {
-    handleError(error);
-    return { status: error.response?.status || 500, data: { profileImage: null } };
-  }
-};
 
-export const saveLocation = async (userId, location) => {
-  try {
-    const response = await api.post('/save-location', { userId, location });
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
 
-export const createAppointment = async (data) => {
-  try {
-    const response = await api.post("/appointments", data);
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
-
-export const getAppointment = async (tailorId) => {
-  try {
-    const response = await api.get(`/appointment/${tailorId}`);
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
-
-export const getAllChats = async () => {
-  return await api.get('/chats');
-};
-
-export const getChats = async () => {
-  try {
-    const response = await api.get("/chats");
-    return response;
-  } catch (error) {
-    handleError(error);
-  }
-};
 
 // Axios interceptor for auto token refresh
 api.interceptors.response.use(

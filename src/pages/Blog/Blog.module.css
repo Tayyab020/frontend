@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card */
   transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
 }
@@ -41,7 +41,7 @@
   border-radius: 10px;
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.3s; /* Smooth transition for image hover effect */
 }
 

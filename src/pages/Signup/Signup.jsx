@@ -136,12 +136,12 @@ function Signup() {
 
       <span>
         Already have an account?{" "}
-        <button className={styles.login} onClick={() => navigate("/login")}>
+        <button className={styles.login} onClick={() => navigate("/")}>
           Log In
         </button>
       </span>
 
-      {error != "" ? <p className={styles.errorMessage}>{error}</p> : ""}
+      {error !== "" ? <p className={styles.errorMessage}>{error}</p> : ""}
     </div>
   );
 }

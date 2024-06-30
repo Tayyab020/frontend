@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { getBlogById, deleteBlog, postComment, getCommentsById } from "../../api/internal";
+import { getBlogById, deleteBlog } from "../../api/internal";
 import Loader from "../../components/Loader/Loader";
 import styles from "./BlogDetails.module.css";
-import CommentList from "../../components/CommentList/CommentList";
 
 function BlogDetails() {
   const [blog, setBlog] = useState({});
-  const [comments, setComments] = useState([]);
   const [ownsBlog, setOwnsBlog] = useState(false);
-  const [newComment, setNewComment] = useState("");
   const [reload, setReload] = useState(false);
 
   const navigate = useNavigate();
@@ -22,12 +19,9 @@ function BlogDetails() {
 
   useEffect(() => {
     async function getBlogDetails() {
-      const commentResponse = await getCommentsById(blogId);
-      if (commentResponse.status === 200) {
-        setComments(commentResponse.data.data);
-      }
-
+     
       const blogResponse = await getBlogById(blogId);
+      console.log(blogResponse)
       if (blogResponse.status === 200) {
         setOwnsBlog(username === blogResponse.data.blog.author.username);
         setBlog(blogResponse.data.blog);
@@ -36,20 +30,6 @@ function BlogDetails() {
     getBlogDetails();
   }, [reload]);
 
-  const postCommentHandler = async () => {
-    const data = {
-      author: userId,
-      blog: blogId,
-      content: newComment,
-    };
-
-    const response = await postComment(data);
-
-    if (response.status === 201) {
-      setNewComment("");
-      setReload(!reload);
-    }
-  };
 
   const deleteBlogHandler = async () => {
     const response = await deleteBlog(blogId);
@@ -66,18 +46,20 @@ function BlogDetails() {
   return (
     <div className={styles.detailsWrapper}>
       <div className={styles.left}>
-        <h1 className={styles.title}>{blog.title}</h1>
+       
         <div className={styles.meta}>
           <img src={blog.authorPhotoPath} alt="Author's profile" className={styles.profileImage} />
           <p>
+          <h1 className={styles.title}>{blog.username}</h1>
             @{blog.author.username} on {new Date(blog.createdAt).toDateString()}
           </p>
         </div>
         <div className={styles.photo}>
           <img src={blog.photoPath} alt={blog.title} />
         </div>
+        <h1 className={styles.title}>{blog.title}</h1>
         <p className={styles.content}>{blog.content}</p>
-        <p className={styles.price}>Price: ${blog.price}</p>
+        <p className={styles.price}>Price: Rs.{blog.price}</p>
        
           <div className={styles.controls}>
            
